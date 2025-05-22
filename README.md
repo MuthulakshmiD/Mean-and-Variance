@@ -1,4 +1,4 @@
-#  Mean and variance of a discrete  distribution
+#  Mean and variance of a discrete  distribution :
 ## Name :Muthulakshmi D
 ## Reg : 212223040122
 
