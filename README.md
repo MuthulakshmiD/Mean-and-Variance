@@ -50,28 +50,23 @@ It shows the distance of a random variable from its mean. It is calcualted as
 
 # Program :
 ```
+## 2 3 2 3 2 4 3 2 4 2
 import numpy as np
-L=[int(i) for i in input().split()]
-N=len(L); M=max(L) 
-x=list();f=list()
-for i in range (M+1):
-    c = 0
-    for j in range(N):
-        if L[j]==i:
-            c=c+1
-    f.append(c)
-    x.append(i)
-sf=np.sum(f)
-p=list()
-for i in range(M+1):
-    p.append(f[i]/sf) 
-mean=np.inner(x,p)
-EX2=np.inner(np.square(x),p)
-var=EX2-mean**2 
-SD=np.sqrt(var)
-print("The Mean arrival rate is %.3f "%mean)
-print("The Variance of arrival from feeder is %.3f "%var) 
-print("The Standard deviation of arrival from feeder is %.3F "%SD)
+
+L = list(map(int, input().split()))
+x = sorted(set(L))
+f = [L.count(i) for i in x]
+total = sum(f)
+p = [count / total for count in f]
+
+mean = sum(x[i] * p[i] for i in range(len(x)))
+EX2 = sum((x[i]**2) * p[i] for i in range(len(x)))
+var = EX2 - mean**2
+sd = var**0.5
+
+print("Mean = %.3f" % mean)
+print("Variance = %.3f" % var)
+print("Standard Deviation = %.3f" % sd)
 ```
 # Output : 
 ![image](https://github.com/user-attachments/assets/961af0ea-5866-43df-9a55-48c6b0fce91a)
